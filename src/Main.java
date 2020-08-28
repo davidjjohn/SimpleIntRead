@@ -27,9 +27,9 @@ public class Main {
 
 	    // Prompt and read for variables
 		System.out.print("Enter integer values for <a>, <b>, <c>: ");
-	    a = grabit("a");
-	    b = grabit("b");
-	    c = grabit("c");
+	    a = grabInt("a");
+	    b = grabInt("b");
+	    c = grabInt("c");
 
 	    try {
 			result = (a + b) / c;
@@ -47,13 +47,16 @@ public class Main {
     // method to encapsulate a safe reading on an integer from the keyboard object.
 	// The name of the variable value to be read is passed as a parameter, which is used
 	// only in case of an exception.
-    static int grabit(String vname){
+    static int grabInt(String vname){
     	int temp = 0;
+
+    	// attempt to read int
 		try {
 			temp = keyboard.nextInt();
 		}
 		catch(Exception e){
 			System.out.println("Error on input for integer variable <"+ vname + ">");
+			System.out.println("You will need to rerun this program");
 			System.exit(7);
 		}
 
