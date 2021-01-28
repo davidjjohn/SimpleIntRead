@@ -6,7 +6,13 @@
 // David John
 // August 2020
 
+// for testing:
+//  2147483647   56   7
+//  13  8  0
+
+
 import java.util.Scanner;
+
 
 public class Main {
 
@@ -18,7 +24,7 @@ public class Main {
     	// Advertisement
 		System.out.println("\nSuper Computation App (version 1, 2020)\n\n");
 
-    	// local variable declarations
+    	// local primitive variable declarations and initializations
     	int a=0, b=0, c=0;
         int result=0;
 
@@ -31,12 +37,28 @@ public class Main {
 	    b = grabInt("b");
 	    c = grabInt("c");
 
-	    try {
-			result = (a + b) / c;
-		}catch(Exception e){
-	    	System.out.println("Computation error");
-	    	System.exit(16);
-		}
+	    // compute result
+	    result = (a+b)/c;
+
+//		// Be super careful to make sure everything is ok and to report
+//		// a proper error message
+//
+//		// first check a+b
+//		try {
+//			result = Math.addExact(a,b);
+//		} catch (ArithmeticException e){
+//			System.out.print("  Overflow on the addition of <"+a+"> ");
+//			System.out.println("and <"+b+">");
+//			System.exit(2);
+//		}
+//
+//		// now worry about (a+b)/c
+//		try {
+//			result = result/c;
+//		}catch (ArithmeticException e){
+//			System.out.println("  Division by zero detected");
+//			System.exit(3);
+//		}
 
 	    System.out.println("The value of (<a>+<b>)/<c> is: "+result);
 
