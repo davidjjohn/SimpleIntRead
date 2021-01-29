@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class Main {
 
 	// class variable
-    static Scanner keyboard;
+    private static Scanner keyboard;
 
     public static void main(String[] args) {
 
@@ -37,28 +37,28 @@ public class Main {
 	    b = grabInt("b");
 	    c = grabInt("c");
 
-	    // compute result
-	    result = (a+b)/c;
 
-//		// Be super careful to make sure everything is ok and to report
-//		// a proper error message
-//
-//		// first check a+b
-//		try {
-//			result = Math.addExact(a,b);
-//		} catch (ArithmeticException e){
-//			System.out.print("  Overflow on the addition of <"+a+"> ");
-//			System.out.println("and <"+b+">");
-//			System.exit(2);
-//		}
-//
-//		// now worry about (a+b)/c
-//		try {
-//			result = result/c;
-//		}catch (ArithmeticException e){
-//			System.out.println("  Division by zero detected");
-//			System.exit(3);
-//		}
+
+		// Be super careful to make sure everything is ok and to report
+		// a proper error message
+
+		// first check a+b
+		try {
+			System.out.println(a+b);
+			result = Math.addExact(a,b);
+		} catch (ArithmeticException e){
+			System.out.print("  Overflow on the addition of <"+a+"> ");
+			System.out.println("and <"+b+">");
+			System.exit(2);
+		}
+
+		// now worry about (a+b)
+		try{
+			result = result/c;
+		}catch (ArithmeticException e){
+			System.out.println("  Division by zero detected");
+			System.exit(3);
+		}
 
 	    System.out.println("The value of (<a>+<b>)/<c> is: "+result);
 
@@ -70,6 +70,7 @@ public class Main {
 	// The name of the variable value to be read is passed as a parameter, which is used
 	// only in case of an exception.
     static int grabInt(String vname){
+    	
     	int temp = 0;
 
     	// attempt to read int
